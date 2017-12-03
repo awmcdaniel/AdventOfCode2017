@@ -29,11 +29,12 @@ class DigitSummer:
                 return self.__current_index + 1
 
         if challenge_part == 2:
-            comparison_offset = self.__number_of_digits / 2
+            comparison_offset = int(self.__number_of_digits / 2)
 
             potential_next_index = self.__current_index + comparison_offset
 
             if potential_next_index > self.__last_index:
-                return 0
+                # loop around to the front of the array and keep going
+                return potential_next_index - self.__number_of_digits
             else:
                 return potential_next_index
